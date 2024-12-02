@@ -7,6 +7,10 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import User from "./components/User";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import OldBooks from "./components/OldBooks";
+import NewBooks from "./components/NewBook";
+import LogIn from "./components/Login";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -33,12 +37,30 @@ function App() {
             <li>
               <Link to="/user/2">User 2</Link>
             </li>
+
+            <li>
+              <Link to="/books/old_books">Old Books</Link>
+            </li>
+
+            <li>
+              <Link to="/books/new_books">New Books</Link>
+            </li>
+
+            <li>
+              <Link to="/LogIn">LogIn</Link>
+            </li>
           </ul>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<LogIn />} />
             <Route path="/user/:id" element={<User />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/books">
+              <Route path="old_books" element={<OldBooks />} />
+              <Route path="new_books" element={<NewBooks />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </div>
